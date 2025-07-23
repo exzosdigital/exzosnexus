@@ -10,15 +10,26 @@
     },
     "app/api/mcp/execute/route.ts": {
       "maxDuration": 60
+    },
+    "app/api/mcp/[...segments]/route.ts": {
+      "maxDuration": 60,
+      "runtime": "nodejs20.x"
     }
   },
   "env": {
-    "NODE_ENV": "production"
+    "NODE_ENV": "production",
+    "GOOGLE_CLOUD_PROJECT_ID": "exzosverce",
+    "MCP_SERVER_NAME": "ExzosNexus MCP Hub",
+    "MCP_SERVER_VERSION": "1.0.0"
   },
   "rewrites": [
     {
       "source": "/mcp",
       "destination": "/api/mcp"
+    },
+    {
+      "source": "/mcp/:path*",
+      "destination": "/api/mcp/:path*"
     }
   ]
 }

@@ -1,0 +1,24 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "pnpm build",
+  "devCommand": "pnpm dev",
+  "installCommand": "pnpm install",
+  "regions": ["gru1", "iad1"],
+  "functions": {
+    "app/api/mcp/handler/route.ts": {
+      "maxDuration": 60
+    },
+    "app/api/mcp/execute/route.ts": {
+      "maxDuration": 60
+    }
+  },
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "rewrites": [
+    {
+      "source": "/mcp",
+      "destination": "/api/mcp"
+    }
+  ]
+}
